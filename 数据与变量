@@ -23,4 +23,5 @@ if condition:
 else:
 do something 
 
-值比较：
+值比较、看结果、猜有无、
+and or 
