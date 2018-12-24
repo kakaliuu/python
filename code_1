@@ -1,0 +1,7 @@
+一、爬虫小实验：
+download html,将html格式转化为python格式.
+def get_html():
+    return html_string 
+def extract_text(html_string):
+     return formatted_string
+def  to_csv(formatted——string):
