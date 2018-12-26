@@ -5,3 +5,36 @@ def get_html():
 def extract_text(html_string):
      return formatted_string
 def  to_csv(formatted——string):
+
+从常识出发， 
+1、download HTML
+2、find text 
+3、save csv 
+ 从已知出发
+ 1、get_html 
+ 2、html 转化类型
+ 3、csv_string
+ 
+ def get_html:
+ retur html_string 
+ def extract_text(html_string)
+ code_eg1:
+def getweb():
+    file=open('./web_sample/sample.html','r')
+    return file.readlines()
+
+def extract_text(html_string):
+    lines=[]
+    for line in html_string:
+        new_line=line.strip()
+        if  new_line.endswith(('</td>')):
+            formatted=new_line.strip('</td>').split('>')[-1]
+             lines.append(formatted)
+            return lines
+html_string=getweb()
+cleaned_text=extract_text(htm_string)
+print(cleaned_text)
+
+
+def to_csv(formatted_string):
+     pass
