@@ -15,6 +15,7 @@ def  to_csv(formatted——string):
  2、html 转化类型
  3、csv_string
  
+###函数规整，保证函数是实现一个完成的功能###
  def get_html:
  retur html_string 
  def extract_text(html_string)
@@ -35,6 +36,32 @@ html_string=getweb()
 cleaned_text=extract_text(htm_string)
 print(cleaned_text)
 
+#规整函数格式#
+def format_lines(lines):
+     unit=[]
+     formatted.lines=[e
+         ['Account','Due Date','Date'],
+     ]
+     
+   for line in lines:
+   unit.append(line)
+   if len(unit)==4:
+      formatted_lines.append(unit)
+       unit=[]
 
-def to_csv(formatted_string):
-     pass
+   return  formatted_lines
+
+def to_csv(formatted_string)
+  file=open('result.csv','W+')
+   write=csv.write(file)
+    for unit in formatted_string:
+      write.writeow(unit)
+    
+def main():
+ htm_string=getweb()
+ cleaned_text=extract_text(htm_string)
+  l=format_lines(cleaned_text)
+   to_csv(l)
+
+main()
+
