@@ -1,0 +1,18 @@
+###实现文件自动归类##
+import os 
+import shutil 
+
+patch='./'
+files=os.listdit(patch)
+
+for  f in files:
+ 
+ #f.png
+ #
+   if fos.patch.exist(patch):
+       makefolder()
+       movefiletofolder()
+    else:
+        movefiletofolder()
+        
+
