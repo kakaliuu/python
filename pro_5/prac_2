@@ -1,8 +1,6 @@
-#文件搜素
-1、告诉计算机文件在哪
-使用路径告诉文件位置
-2、描述文件的特征
-内置库：os operation system 
-
-3、比对后打印文件名
-4、
+import os
+path='E:\Python_3\【课程代码】从零写Python练手项目：实用脚本\ScriptCourse\Project1\LessonCode\WindowsVersion\images'
+files=os.listdir(path)
+for f in files:
+    if 'fish' in f and f.endswith('.png'):
+         print('Foundit!' + f)
