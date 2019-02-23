@@ -12,3 +12,17 @@ files=os.listdir(path)
 for f in files:
     if 'fish' in f and f.endswith('.png'):
          print('Foundit!' + f)
+ ###课后作业部分###
+ import os
+path='E:\Python_3\【课程代码】从零写Python练手项目：实用脚本\ScriptCourse\Project1\LessonCode\WindowsVersion\images'
+files=os.listdir(path)
+print(files)
+for f in files:
+    if(not f.endswith('.gif')) and ("project30" in f or 'commercial' in f):
+        print('Foundit!' + f)
+
+
+ ###知识重点####
+ 1、系统搜索 import os
+ 2、os.listdir(path),按照路径找文件
+ 3、if循环多重循环
