@@ -1,3 +1,5 @@
+###edi by liurun 20190224
+##to move files to one other files
 import os
 import shutil
 path='E:\Python_3\git_python\mygitresp\python\problem2_files'
