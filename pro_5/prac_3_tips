@@ -6,3 +6,10 @@
 
 
 shutil
+
+prac_3homework @tips
+os.removedirs() --删除文件
+shutil.move() 移动文件，参数只能是路径
+os.listdir()遍历文件
+shutil.move(cur_path  +'.',path + '/image')
+list ;['jpg','png']
