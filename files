@@ -1,0 +1,9 @@
+1、文件读写，（文件打开消耗文件句柄，因此需要在open 之后close)
+f=open('test.txt','r')
+print(f.read())
+f.close
+or:
+with open('TEST.TXT','r') as f:
+     print(f.read())
+     
+     
