@@ -4,6 +4,12 @@ print(f.read())
 f.close
 or:
 with open('TEST.TXT','r') as f:
-     print(f.read())
+    print(f.read())
      
      
+2、对文件追加：
+f = open('test.txt','w')
+f.write('hello')
+f.close()
+f = open('test.txt','r')
+这种方式原文件会被覆盖
