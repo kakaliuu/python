@@ -45,3 +45,10 @@ while True:
     if not line:break
     process(line)
 f.close()
+
+8、最简单的方法（for)
+import fileinput
+for line in fileinput.input('/home/python/test.txt'):
+    print(line)
+
+
