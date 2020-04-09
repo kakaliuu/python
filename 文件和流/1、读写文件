@@ -18,6 +18,15 @@ f = open('test.txt','r')
 
 
 
-
-
+4\f.readline()
+for i in range(7):
+   print(str(i) + ':' + f.readline())
+   
+   
+5、修改文本
+lines[1]= 'is not a line \n'
+f = open('/home/python/test.txt','w')
+f.writelines(lines)
+f.close()
+将对应的lines[1]的内容写入test.txt中
 
