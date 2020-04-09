@@ -30,3 +30,18 @@ f.writelines(lines)
 f.close()
 将对应的lines[1]的内容写入test.txt中
 
+6、要对每个字符循环/read
+f = open('/home/python/test.txt','r')
+while True:
+   char = f.read(1)
+   if not char: break
+   print(char)
+f.close()
+
+7、对单行进行操作/readline
+f = oepn('/home/python/test.txt','r')
+while True:
+    line = f.readline()
+    if not line:break
+    process(line)
+f.close()
