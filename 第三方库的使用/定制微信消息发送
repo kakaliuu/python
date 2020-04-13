@@ -1,0 +1,16 @@
+1、wxpy 安装：
+pip install wxpy 
+2、确认安装成果，wxpy　-v 显示版本，import wxpy，不会报错
+
+3、wxpy自动发送微信消息
+read_info()
+import csv
+def read_info():
+    f = open('./sample.csv','r')
+    reader =csv.DictReader(f)
+    for info in reader():
+        print (info['姓名'],
+               info['上课时间'],
+               info['课程']
+               )
+        #return msg
