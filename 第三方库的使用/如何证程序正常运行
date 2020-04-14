@@ -1,0 +1,7 @@
+1、什么是异常
+try:
+    print(int(num)/2)
+except:
+    print(invalid)
+    
+2、预测异常
