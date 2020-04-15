@@ -1,0 +1,47 @@
+1、wxpy 安装：
+pip install wxpy 
+2、确认安装成果，wxpy　-v 显示版本，import wxpy，不会报错
+
+3、wxpy自动发送微信消息
+
+import csv
+def read_info():
+    f = open('D:/kakaliuu/Python/wangyiyun/sample.csv', 'r')
+    reader = csv.DictReader(f)
+    return [info for info in reader]
+        #return msg
+#info = read_info()
+#print(info)
+        #xx同学请于 xx时间参加 xxx课程，课程地址是xxx
+
+#read_info()
+def make_msg(raw_info):
+    t='{n}同学请于cc {t}时间参加 {s}课程，课程地址是{a}'
+    return  [t.format(n=info['姓名'],
+                      t=info['上课时间'],
+                      s=info['课程'],
+                      a=info['上课地址']
+                      )for info in raw_info]
+    # ->list ['xx','xxx']
+
+
+
+def send(msg):
+    pass
+
+# bot ->bot.find_fren() ->bot.send()
+#bot.friend().search('name')
+# f.send('msg')
+
+
+
+raw_info =read_info()
+msg=make_msg(raw_info)
+send(msg)
+
+整个项目止步于微信网页版无法登陆。
+总结下：
+1、新的库在使用时要简单的测试下接口是否正常使用
+2、return 【info for info in reader]返回列表的形式
+
+
