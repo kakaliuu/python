@@ -1,0 +1,29 @@
+# import sys, io
+# # Change default encoding to utf8  
+# sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8') 
+
+from mail_mojo.QQMail import QQMail
+from mail_mojo.message import Message
+from config import ADDRESS,TOKEN
+
+auto_client = QQMail(address=ADDRESS,access_token=TOKEN)
+auto_client.init_imap()
+auto_client.init_wait()
+
+while True:
+    print("服务开始,接收邮件中...")
+    new_mail = auto_client.wait_for_new_mail()
+    if "产品报价" in new_mail.CONTENT:
+        msg = Message(ADDRESS,new_mail.FROM,f"自动回复:{new_mail.SUBJECT}")
+        msg.add_text("您好，请查收报价单")
+        msg.add_text("有需要请加我微信")
+        # msg.add_image("微信二维码.png")
+        msg.add_attachment("产品报价单.xlsx")
+        auto_client.send(new_mail.FROM,msg)
+        # auto_client.send("CS@example.org",msg)
+        
+
+tips:
+1、通过address、token_address去登陆邮箱
+2、while True,死循环，不断的去判断是否接收邮件
+3、msg.add_text,在邮件msg添加文本，msg.add_attachment 添加附件
