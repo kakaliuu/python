@@ -1,0 +1,18 @@
+通过qrcode，将excel的制定列生成二维码，并插入制定列
+# 打开已有的 excel 
+# 读取每一行得到编号
+# qrcode.make(编号)
+# 图片保存
+# 将保存的图片插入到 excel 中
+from excel_magic.dataset import open_file,ImageCell
+import qrcode
+
+with open_file(path="固定资产清单-2.xlsx") as excel_file:
+    sheet = excel_file.get_sheet_by_index(0)
+    for row in sheet.get_rows():
+        num = row["编号"]
+        img =qrcode.make(num,border=0,box_size=5)
+        full_name = str(num) + ".png"
+        img.save(full_name)
+        row["二维码"] = ImageCell(full_name)
+        
