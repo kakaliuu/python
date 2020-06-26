@@ -11,9 +11,8 @@ rows = diff_result.not_found_in_b.get_rows()
 
 style =Style(fill_color="#FFC7CD",font_color="#C65F60")
 check_excel_file.get_sheet_by_index(0).highlight(rows,style)
-check.file.append(diff_result.not_found_in_b)
+check_excel_file.sheets.append(diff_result.not_found_in_b)
 check_excel_file.save()
-
 
 attach:老师的code :
 ----------h
