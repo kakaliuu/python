@@ -1,0 +1,12 @@
+zip,可以将2个list打包成一个字典使用
+ heros = ['雷神托尔', '美国队长', '金刚狼']
+ weapons = ['雷神之锤', '艾德曼盾牌', '狼爪']
+In [7]: for heros , weapons in zip(heros,weapons): 
+   ...:     print(heros,weapons) 
+   ...:      
+   ...:                                                                                             
+雷神托尔 雷神之锤
+美国队长 爱得曼盾牌
+金刚狼 狼爪
+
+     
