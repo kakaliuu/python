@@ -1,14 +1,24 @@
 #按照excel行内容，批量生成文档
 #打开excel，读取excel 每一行
 #把读取到的数据分别渲染到模板中
-from  excel_magic.dataset import open_file
+
+from excel_magic.dataset import open_file
+from word_spell import Document
 
 with open_file("学生名单.xlsx") as excel_file:
     sheet = excel_file.get_sheet_by_index(0)
-    for row in sheet.get_rows():
-        print(row.get("考试分数"))
+    rows = sheet.get_rows()
+    for row in rows:
+        score = row["考试分数"].value
+        parent = row["家长姓名"].value
+        pupil = row["学生姓名"].value
+        doc = Document("家长会通知模板.docx")
+        doc.render_from_template(
+            学生姓名=pupil, 家长姓名=parent, 考试分数=int(score), out="result/{}.docx".format(pupil)
+        )
 
 
 tips:excel_magic.dataset import open_file，自动保存文件
 for row in sheet.get_rows()，获取excel列内容
-row.get("考试分数"),按照字典的方式获取考试分数
+row["考试分数"],按照字典的方式获取考试分数
+word_spell.render_from_template，按照模板生成文档，文件具体内容按照for循环生成
