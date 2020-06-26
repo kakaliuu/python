@@ -1,0 +1,14 @@
+#按照excel行内容，批量生成文档
+#打开excel，读取excel 每一行
+#把读取到的数据分别渲染到模板中
+from  excel_magic.dataset import open_file
+
+with open_file("学生名单.xlsx") as excel_file:
+    sheet = excel_file.get_sheet_by_index(0)
+    for row in sheet.get_rows():
+        print(row.get("考试分数"))
+
+
+tips:excel_magic.dataset import open_file，自动保存文件
+for row in sheet.get_rows()，获取excel列内容
+row.get("考试分数"),按照字典的方式获取考试分数
