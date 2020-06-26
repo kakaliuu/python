@@ -1,0 +1,27 @@
+通过邮件，将个人工资内容通过邮件发宋
+msg生成内容，mail_mojo.send发送
+
+from mail_mojo.QQMail import QQMail
+from mail_mojo.message import Message
+from excel_magic.dataset import open_file
+from config import ADDRESS,TOKEN
+
+client = QQMail(address=ADDRESS,access_token=TOKEN)
+excel_f = open_file("mailList.xlsx")
+
+sh = excel_f.get_sheet_by_index(0)
+for row in sh.get_rows():
+    name   = row["姓名"]
+    salary = row["工资"]
+    mail   = row["邮箱"]
+    # Cell 
+    
+    with open_file(f"{name}.xlsx") as salary_file:
+        sh = salary_file.add_sheet("sheet-1",["姓名","工资"])
+        sh.append_row([name,salary])
+
+    mail_msg = Message(from_name=ADDRESS,to_name=mail.value,subject=f"{name}:请查收你的工资")
+    mail_msg.add_text("请确认后回复：没问题")
+    mail_msg.add_attachment(f"{name}.xlsx")
+    client.send(to_address=mail.value,msg=mail_msg)
+    print("done")
