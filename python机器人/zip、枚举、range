@@ -31,3 +31,24 @@ dogdogdogdogdogdog
 dogdogdogdogdogdogdog
 dogdogdogdogdogdogdogdog
 dogdogdogdogdogdogdogdogdog
+
+
+自动分群机器人:
+from excel_magic.dataset import open_file
+
+sum_file = open_file("fans.xlsx")
+sum_sh   = sum_file.get_sheet_by_index(0)
+all_fans_rows = sum_sh.get_rows()
+
+group_size = 20
+all_fans_count = len(all_fans_rows)
+num = 0 
+
+for i in range(0,all_fans_count,group_size):
+    rows = all_fans_rows[i:i+group_size]
+    num += 1
+    new_file = open_file(f"result/第{num}个群成员.xlsx")
+    new_sheet = new_file.add_sheet("sheet-1",sum_sh.fields)
+    new_sheet.append_rows(rows)
+    new_file.save(backup=False)
+
