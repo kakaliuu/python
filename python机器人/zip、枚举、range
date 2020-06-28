@@ -9,3 +9,25 @@ Out[18]: [(0, 'apple'), (1, 'banana'), (2, 'cherry')]
 
 zip，双循环，最后
 range(3)、enumerate([1,2,3])最后返回的都不是列表，都是各自的对象
+
+In [22]: for fruit in fruit: 
+    ...:     print(f'今天吃{fruit}') 
+    ...:                                                                                            
+今天吃apple
+今天吃banana
+今天吃cherry
+
+
+In [23]: for i in range(10): 
+    ...:     print('dog'*i) 
+    ...:                                                                                            
+
+dog
+dogdog
+dogdogdog
+dogdogdogdog
+dogdogdogdogdog
+dogdogdogdogdogdog
+dogdogdogdogdogdogdog
+dogdogdogdogdogdogdogdog
+dogdogdogdogdogdogdogdogdog
