@@ -52,3 +52,23 @@ for i in range(0,all_fans_count,group_size):
     new_sheet.append_rows(rows)
     new_file.save(backup=False)
 
+多表数据汇总：
+from excel_magic.dataset import open_file,Row
+
+a = open_file("显示器数据-电商.xlsx")
+b = open_file("显示器数据-维修部.xlsx")
+z = open_file("显示器数据-汇总.xlsx")
+
+sh_a = a.get_sheet_by_index(0)
+sh_b = b.get_sheet_by_index(0)
+sh_z = z.get_sheet_by_index(0)
+
+for row_a,row_b in zip(sh_a.get_rows(),sh_b.get_rows()):
+    new_row = row_a + row_b
+    new_row:Row
+    result = new_row.filter_fields(sh_z.fields)
+    sh_z.append_row(result)
+
+z.save()
+    
+tips：new_rows(sh_z.fields)，将sh_z的列名复制到new_rows
