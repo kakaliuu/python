@@ -1,0 +1,11 @@
+1、
+In [17]: list(enumerate(('banana','apple','cherry')))                                               
+Out[17]: [(0, 'banana'), (1, 'apple'), (2, 'cherry')]
+枚举类型，最后类似字典
+
+2、
+In [18]: list(zip(range(len(fruit)),fruit))                                                         
+Out[18]: [(0, 'apple'), (1, 'banana'), (2, 'cherry')]
+
+zip，双循环，最后
+range(3)、enumerate([1,2,3])最后返回的都不是列表，都是各自的对象
